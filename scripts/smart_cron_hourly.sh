@@ -39,18 +39,7 @@ mkdir -p /home/zfs/SMART_cron/${serial_sdc}
 mkdir -p /home/zfs/SMART_cron/${serial_sdd}
 mkdir -p /home/zfs/SMART_cron/${serial_sde}
 #get smartdata to file
-<<<<<<< HEAD
-=======
-echo "/home/zfs/SMART_cron/${serial_sdb}/${timestamp}.smart"
->>>>>>> origin/master
 smartctl -A /dev/sdb > /home/zfs/SMART_cron/${serial_sdb}/${timestamp}.smart
 smartctl -A /dev/sdc > /home/zfs/SMART_cron/${serial_sdc}/${timestamp}.smart
 smartctl -A /dev/sdd > /home/zfs/SMART_cron/${serial_sdd}/${timestamp}.smart
 smartctl -A /dev/sde > /home/zfs/SMART_cron/${serial_sde}/${timestamp}.smart
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> origin/master
