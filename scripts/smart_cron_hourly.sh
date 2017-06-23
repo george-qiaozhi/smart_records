@@ -21,26 +21,29 @@ serial_sdb=$(hdparm -I /dev/sdb | grep 'Serial Number:') # 1~20 for "Serical Num
 serial_sdb=${serial_sdb:21}
 #echo ${#serial_sda} # size 20
 #sdc
-serial_sdc=$(hdparm -I /dev/sda | grep 'Serial Number:') # 1~20 for "Serical Number: ", 21~41 for actual number
+serial_sdc=$(hdparm -I /dev/sdc | grep 'Serial Number:') # 1~20 for "Serical Number: ", 21~41 for actual number
 serial_sdc=${serial_sdc:21}
 #sdd
-serial_sdd=$(hdparm -I /dev/sda | grep 'Serial Number:') # 1~20 for "Serical Number: ", 21~41 for actual number
+serial_sdd=$(hdparm -I /dev/sdd | grep 'Serial Number:') # 1~20 for "Serical Number: ", 21~41 for actual number
 serial_sdd=${serial_sdd:21}
 #sde
-serial_sde=$(hdparm -I /dev/sda | grep 'Serial Number:') # 1~20 for "Serical Number: ", 21~41 for actual number
+serial_sde=$(hdparm -I /dev/sde | grep 'Serial Number:') # 1~20 for "Serical Number: ", 21~41 for actual number
 serial_sde=${serial_sde:21}
-# date >> /home/zfs/Desktop/smart_records/samsungSSD850.smart
-# smartctl -A /dev/sda >> /home/zfs/Desktop/smart_records/samsungSSD850.smart
-# date >> /home/zfs/Desktop/smart_records/INTELSSDSC2BB24.smart
-# smartctl -A /dev/sdb >> /home/zfs/Desktop/smart_records/INTELSSDSC2BB24.smart
-# date >> /home/zfs/Desktop/smart_records/ST31000524AS.smart
-# smartctl -A /dev/sdc >> /home/zfs/Desktop/smart_records/ST31000524AS.smart
+
 
 # prepare smartdata filename
 timestamp=$yr-$Mo-$Dy-$hr
-
+#create directory if not exist
+mkdir -p /home/zfs/SMART_cron/${serial_sdb}
+mkdir -p /home/zfs/SMART_cron/${serial_sdc}
+mkdir -p /home/zfs/SMART_cron/${serial_sdd}
+mkdir -p /home/zfs/SMART_cron/${serial_sde}
 #get smartdata to file
-smartctl -A /dev/sdb > /home/zfs/smart_records/$serial_sdb/$timestamp.smart
-smartctl -A /dev/sdc > /home/zfs/smart_records/$serial_sdc/$timestamp.smart
-smartctl -A /dev/sdd > /home/zfs/smart_records/$serial_sdd/$timestamp.smart
-smartctl -A /dev/sde > /home/zfs/smart_records/$serial_sde/$timestamp.smart
+smartctl -A /dev/sdb > /home/zfs/SMART_cron/${serial_sdb}/${timestamp}.smart
+smartctl -A /dev/sdc > /home/zfs/SMART_cron/${serial_sdc}/${timestamp}.smart
+smartctl -A /dev/sdd > /home/zfs/SMART_cron/${serial_sdd}/${timestamp}.smart
+smartctl -A /dev/sde > /home/zfs/SMART_cron/${serial_sde}/${timestamp}.smart
+
+
+
+
