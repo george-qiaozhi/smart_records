@@ -34,6 +34,7 @@ serial_sde=${serial_sde:21}
 # prepare smartdata filename
 timestamp=$yr-$Mo-$Dy-$hr
 #create directory if not exist
+mkdir -p /home/zfs/SMART_cron
 mkdir -p /home/zfs/SMART_cron/${serial_sdb}
 mkdir -p /home/zfs/SMART_cron/${serial_sdc}
 mkdir -p /home/zfs/SMART_cron/${serial_sdd}
