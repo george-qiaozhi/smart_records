@@ -9,10 +9,12 @@ disks="
 /dev/sdb
 /dev/sdc
 /dev/sdd
-/dev/sde"
+/dev/sde
+/dev/sdf"
 
 #path to keep the smart data for each disk
-logpath="/home/zfs/SMART_cron/"
+# logpath="/home/zfs/SMART_cron/"
+logpath="/logpool/"
 
 #create timestamp
 timestamp=$(date +%Y-%m-%d-%H-%M)
