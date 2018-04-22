@@ -1,0 +1,11 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
+# @hourly /home/zfs/SMART_cron/checkSMARThourly_v2.sh
+
+# check smart data per minute
+* * * * * /home/zfs/smart_records/scripts/check_smart_cron_per_minute.sh
+
+# sync smart data from zpool to backup dir every day
+@daily rsync -arvu /logpool/ /home/zfs/SMART_cron/
+
